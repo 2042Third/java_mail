@@ -30,20 +30,20 @@ public class SendMail {
     protected Session session = null;
     public SendMail() {
         Properties props = new Properties();
-        props.put("mail.transport.protocol", "smtp");
-        props.put("mail.smtp.auth", "true");
+        // props.put("mail.transport.protocol", "smtp");
+        // props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", hostname);
         props.put("mail.smtp.port", "587");
         // props.put("mail.smtp.ssl.enable", "true");
         props.put("mail.debug", "true");
-        Authenticator auth = new Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(username, password);
-            }
-        };
+        // Authenticator auth = new Authenticator() {
+        //     protected PasswordAuthentication getPasswordAuthentication() {
+        //         return new PasswordAuthentication(username, password);
+        //     }
+        // };
 
-        session = Session.getInstance(props, auth);
+        session = Session.getInstance(props);
     }
 
     public int send_test () {
@@ -57,7 +57,7 @@ public class SendMail {
             msg.addHeader("x-cloudmta-tags", "demo, example");
             msg.setText("Test Message Content, hahhaha!");
 
-            Transport.send(msg);
+            Transport.send(msg, username, password);
 
             System.out.println("[ Send Mail ] Message Sent.");
         } catch (javax.mail.MessagingException ex) {
