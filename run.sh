@@ -1,0 +1,1 @@
+sudo java -cp "WEB-INF/lib/*:./." Main
