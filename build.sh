@@ -29,5 +29,6 @@ compile_dir (){
     fi
   done 
 }
+rm -Rf *.class
 # chown tomcat -R WEB-INF/*
 compile_dir ${comp_dir}
