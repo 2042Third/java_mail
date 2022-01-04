@@ -22,7 +22,7 @@ import javax.mail.Authenticator;
 // import jakarta.mail.Authenticator;
 
 public class SendMail {
-    
+
     protected String hostname = "outlook.office365.com";
     // protected String hostname = "smtp-mail.outlook.com"; 
     protected String username = "yangyimike@outlook.com"; 
@@ -59,7 +59,7 @@ public class SendMail {
             Transport.send(msg);
 
             System.out.println("[ Send Mail ] Message Sent.");
-        } catch (jakarta.mail.MessagingException ex) {
+        } catch (javax.mail.MessagingException ex) {
             System.out.println("[ Send Mail ] Send Email Failure.");
             throw new RuntimeException(ex);
         }
